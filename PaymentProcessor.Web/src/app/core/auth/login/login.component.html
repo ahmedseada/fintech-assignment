@@ -1,0 +1,25 @@
+<div class="container">
+  <form id="contact" [formGroup]="loginForm" (ngSubmit)="LoguserIn()">
+    <h3 style="text-align: center">Payment Processor</h3>
+    <fieldset>
+      <input placeholder="Username" type="text" formControlName="username" tabindex="1" autofocus>
+      <fieldset *ngIf="userName.dirty&&userName.invalid">
+        <span style="color: orangered"> User Name Is Required  </span>
+      </fieldset>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Password" type="password" tabindex="2" formControlName="password">
+    </fieldset>
+    <fieldset *ngIf="Password.dirty&&Password.invalid">
+      <span style="color: orangered"> Password Cannot Be Empty  </span>
+    </fieldset>
+    <fieldset>
+      <button [disabled]="loginForm.invalid"  name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+
+    <fieldset style="text-align: center"  >
+      <span style="color: orangered"> {{errors}}  </span>
+    </fieldset>
+  </form>
+</div>
+

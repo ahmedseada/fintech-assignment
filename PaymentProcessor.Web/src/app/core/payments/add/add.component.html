@@ -1,0 +1,59 @@
+<div class="container">
+  <form id="contact" [formGroup]="trxRequest" (ngSubmit)="AddPayment()">
+    <h3 style="text-align: center">Add Payment</h3>
+    <h4 style="text-align: center;color: #4CAF50" *ngIf="showSuccess">
+      Successful Payment Approval Code : <span style="color: tomato;font-weight: bold"> {{approvalCode}} </span>
+    </h4>
+
+    <fieldset>
+      <input placeholder="Processing Code" type="text" formControlName="processingCode" tabindex="1" autofocus>
+    </fieldset>
+    <fieldset *ngIf="processingCode.dirty&&processingCode.invalid">
+      <span style="color: orangered"> Code Is Required  </span>
+    </fieldset>
+    <fieldset>
+      <input placeholder="System Trace Number" type="text" tabindex="2" formControlName="systemTraceNr">
+    </fieldset>
+    <fieldset *ngIf="systemTraceNr.dirty&&systemTraceNr.invalid">
+      <span style="color: orangered"> System Trace Number Cannot Be Empty  </span>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Function Code" type="text" tabindex="2" formControlName="functionCode">
+    </fieldset>
+    <fieldset *ngIf="functionCode.dirty&&functionCode.invalid">
+      <span style="color: orangered"> Function Code Cannot Be Empty  </span>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Card Number" type="text" tabindex="2" formControlName="cardNo">
+    </fieldset>
+    <fieldset *ngIf="cardNo.dirty&&cardNo.invalid">
+      <span style="color: orangered"> Card Number Cannot Be Empty  </span>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Card Holder" type="text" tabindex="2" formControlName="cardHolder">
+    </fieldset>
+    <fieldset *ngIf="cardHolder.dirty&&cardHolder.invalid">
+      <span style="color: orangered"> Card Holder Cannot Be Empty  </span>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Transaction Amount" type="text" tabindex="2" formControlName="amountTrxn">
+    </fieldset>
+    <fieldset *ngIf="amountTrxn.dirty&&amountTrxn.invalid">
+      <span style="color: orangered"> Transaction Amount Cannot Be Empty  </span>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Currency Code" type="text" tabindex="2" formControlName="currencyCode">
+    </fieldset>
+    <fieldset *ngIf="currencyCode.dirty&&currencyCode.invalid">
+      <span style="color: orangered"> Currency Code Cannot Be Empty  </span>
+    </fieldset>
+    <fieldset>
+      <button [disabled]="trxRequest.invalid" name="submit" type="submit" id="contact-submit" data-submit="...Sending">
+        Submit
+      </button>
+    </fieldset>
+
+
+  </form>
+</div>
+
